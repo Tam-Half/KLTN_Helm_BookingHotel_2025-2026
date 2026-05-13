@@ -54,6 +54,11 @@ configmap:
 #======================
 # VOLUMES AND MOUNTVOLUMES
 #======================
+volumeMounts:
+  enabled: false
+
+volumes:
+  enabled: false
 
 
 
