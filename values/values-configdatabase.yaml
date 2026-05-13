@@ -1,0 +1,76 @@
+name: confighostdatabase
+
+applabels: confighostdatabase
+#=====================
+# DEPLOYMENT
+#=====================
+deployment:
+  enabled: false
+  # image:
+  #   name:
+  #   repository:
+  #   tag: "02"
+  #   port: 120
+  # cmt
+  resources:
+    enabled: false
+    # request:
+    #   memory: 64Mi
+    #   cpu: 250m
+    # limit:
+    #   memory: 128Mi
+    #   cpu: 500m
+
+#======================
+# SERVICE
+#=====================
+service:
+  enabled: false
+
+#======================
+# INGRESS
+#=====================
+ingress: 
+  enabled: false
+  domain: 
+
+#======================
+# CONFIGMAP
+#=====================
+
+configmap:
+  enabled: false
+#   data:
+#     server.port: "${PORT_SERVICE}"
+#     spring.application.name: "${NAME_SERVICE}"
+
+
+#======================
+# VOLUMES AND MOUNTVOLUMES
+#======================
+
+env: 
+  enabled: false
+  data: {}
+
+#======================
+# SECRETS
+#======================
+secret:
+  enabled: true
+  DB_HOST: 80
+  DB_PORT: 8888
+  DB_NAME: dorahotel
+  DB_USER: sa
+  DB_PASS: Root1234
+
+
+
+extraSecrets:
+  enabled: false
+
+#======================
+# PVC
+#======================
+pvc: 
+  enabled: false
