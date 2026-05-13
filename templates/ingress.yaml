@@ -16,6 +16,6 @@ spec:
               name: {{ .Values.name }}-service
               port:
                 number: {{ .Values.secret.portService }}
-            path: /
+            path: {{ .Values.ingress.path }}
             pathType: {{ .Values.pathType }}
 {{- end }}
