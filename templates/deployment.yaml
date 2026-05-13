@@ -53,17 +53,17 @@ spec:
 {{- end }}
 {{- end }}
 
-{{- if .Values.resources.enabled }}
+{{- if .Values.deployment.resources.enabled }}
           resources:
 {{- if .Values.resources.request }}
             requests:
-              memory: "{{ .Values.resources.request.memory }}"
-              cpu: "{{ .Values.resources.request.cpu }}"
+              memory: "{{ .Values.deployment.resources.request.memory }}"
+              cpu: "{{ .Values.deployment.resources.request.cpu }}"
 {{- end }}
-{{- if .Values.resources.limit }}
+{{- if .Values.deployment.resources.limit }}
             limits:
-              memory: "{{ .Values.resources.limit.memory }}"
-              cpu: "{{ .Values.resources.limit.cpu }}"
+              memory: "{{ .Values.deployment.resources.limit.memory }}"
+              cpu: "{{ .Values.deployment.resources.limit.cpu }}"
 {{- end }}
 {{- end }}
 
