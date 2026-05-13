@@ -1,25 +1,26 @@
 name: bookinghotel-be
 #113
-applabels: customerservice
+applabels: bookinghotel-be
 #=====================
 # DEPLOYMENT
 #=====================
 
-image:
-  name: customerservice-container
-  repository: customerservice
-  tag: "latest"
-  port: 120
+deployment:
+  enabled: true
+  image:
+    name: bookinghotel-be-container
+    repository: bookinghotel_be
+    tag: "03"
+    port: 120
 
-resources:
-  enabled: false
-  request:
-    memory: 64Mi
-    cpu: 250m
-  limit:
-    memory: 128Mi
-    cpu: 500m
-
+  resources:
+    enabled: false
+    request:
+      memory: 64Mi
+      cpu: 250m
+    limit:
+      memory: 128Mi
+      cpu: 500m
 #======================
 # SERVICE
 #=====================
@@ -31,8 +32,10 @@ service:
 #=====================
 ingress: 
   enabled: false
-  domain: customer.argocd
+  domain: ""
+  path: ""
 
+# Openshift
 route:
   enabled: false
 
@@ -59,32 +62,46 @@ configmap:
 #======================
 secret:
   enabled: true
-  portService: 80
-  portTarget: 8081
+  portService: 3000
+  portTarget: 80
 
 env:
   enabled: true
-  0:
-    name: DB_HOST
-    valueFrom:
-      secretKeyRef:
-        name: configserver-secret
-        key: DB_HOST
-        optional: false
-  1:
-    name: DB_USER
-    valueFrom:
-      secretKeyRef:
-        name: configserver-secret
-        key: DB_USER
-        optional: false
-  2:
-    name: DB_PASS
-    valueFrom:
-      secretKeyRef:
-        name: configserver-secret
-        key: DB_PASS
-        optional: false
+  items:
+    - name: DB_HOST
+      valueFrom:
+        secretKeyRef:
+          name: confighostdatabase-secret
+          key: DB_HOST
+          optional: false
+
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: confighostdatabase-secret
+          key: DB_USER
+          optional: false
+
+    - name: DB_PASS
+      valueFrom:
+        secretKeyRef:
+          name: confighostdatabase-secret
+          key: DB_PASS
+          optional: false
+
+    - name: DB_NAME
+      valueFrom:
+        secretKeyRef:
+          name: confighostdatabase-secret
+          key: DB_NAME
+          optional: false
+
+    - name: DB_PORT
+      valueFrom:
+        secretKeyRef:
+          name: confighostdatabase-secret
+          key: DB_PORT
+          optional: false
   
 extraSecrets:
   enabled: false
