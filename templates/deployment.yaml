@@ -20,10 +20,10 @@ spec:
 
     spec:
       containers:
-        - name: {{ .Values.image.name }}
-          image: tamtran0210/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+        - name: {{ .Values.deployment.image.name }}
+          image: tamtran0210/{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
           ports:
-            - containerPort: {{ .Values.image.port }}
+            - containerPort: {{ .Values.deployment.image.port }}
 
 {{- if or .Values.secret.enabled .Values.extraSecrets.enabled }}
           envFrom:
