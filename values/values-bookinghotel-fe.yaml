@@ -8,8 +8,8 @@ deployment:
   enabled: true
   image:
     name: bookinghotel-fe-container
-    repository: customerservice
-    tag: "latest"
+    repository: bookinghotel_fe
+    tag: "03"
     port: 120
 
   resources:
@@ -30,7 +30,7 @@ service:
 #======================
 # INGRESS
 #=====================
-ingress: 
+ingress:
   enabled: true
   domain: ""
   path: "/"
@@ -49,12 +49,9 @@ configmap:
 #     server.port: "${PORT_SERVICE}"
 #     spring.application.name: "${NAME_SERVICE}"
 
-
 #======================
 # VOLUMES AND MOUNTVOLUMES
 #======================
-
-
 
 #======================
 # SECRETS
@@ -87,16 +84,16 @@ env:
         name: confighostdatabase-secret
         key: DB_PASS
         optional: false
-  3:     
+  3:
     name: DB_NAME
     valueFrom:
       secretKeyRef:
         name: confighostdatabase-secret
         key: DB_NAME
-        optional: false    
+        optional: false
   4:
     name: DB_PORT
-    valueFrom: 
+    valueFrom:
       secretKeyRef:
         name: confighostdatabase-secret
         key: DB_PORT
