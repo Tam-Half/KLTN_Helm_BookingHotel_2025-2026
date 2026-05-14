@@ -10,7 +10,7 @@ deployment:
   image:
     name: bookinghotel-be-container
     repository: bookinghotel_be
-    tag: "02"
+    tag: "01"
     port: 120
 
   resources:
@@ -73,40 +73,6 @@ secret:
 env:
   enabled: true
   items:
-    - name: DB_HOST
-      valueFrom:
-        secretKeyRef:
-          name: confighostdatabase-secret
-          key: DB_HOST
-          optional: false
-
-    - name: DB_USER
-      valueFrom:
-        secretKeyRef:
-          name: confighostdatabase-secret
-          key: DB_USER
-          optional: false
-
-    - name: DB_PASS
-      valueFrom:
-        secretKeyRef:
-          name: confighostdatabase-secret
-          key: DB_PASS
-          optional: false
-
-    - name: DB_NAME
-      valueFrom:
-        secretKeyRef:
-          name: confighostdatabase-secret
-          key: DB_NAME
-          optional: false
-
-    - name: DB_PORT
-      valueFrom:
-        secretKeyRef:
-          name: confighostdatabase-secret
-          key: DB_PORT
-          optional: false
     - name: DB_URL
       valueFrom:
         secretKeyRef:
