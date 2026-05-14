@@ -67,8 +67,8 @@ volumes:
 #======================
 secret:
   enabled: true
-  portService: 3000
-  portTarget: 80
+  portService: 80
+  portTarget: 3000
 
 env:
   enabled: true
