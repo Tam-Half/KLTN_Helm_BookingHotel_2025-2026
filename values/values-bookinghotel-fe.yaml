@@ -9,7 +9,7 @@ deployment:
   image:
     name: bookinghotel-fe-container
     repository: bookinghotel_fe
-    tag: "03"
+    tag: "01"
     port: 120
 
   resources:
@@ -43,20 +43,26 @@ route:
 #=====================
 
 configmap:
-  enabled: false
-#   nameConfigMap: orderservice-be-application-propertie-configmap
-#   data:
-#     server.port: "${PORT_SERVICE}"
-#     spring.application.name: "${NAME_SERVICE}"
+  enabled: true
+  data:
+    apiUrl: "http://localhost:3000"
 
 #======================
 # VOLUMES AND MOUNTVOLUMES
 #======================
 volumeMounts:
-  enabled: false
+  enabled: true
+  items:
+    - name: fe-config-axios
+      mountPath: /usr/share/nginx/html/env.js
+      subPath: env.js
 
 volumes:
-  enabled: false
+  enabled: true
+  items:
+    - name: fe-config-axios 
+      configMap:
+        name: bookinghotel-fe-configmap
 
 #======================
 # SECRETS

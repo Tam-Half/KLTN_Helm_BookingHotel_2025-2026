@@ -7,11 +7,10 @@ metadata:
   labels:
     {{- include "mychart.labels" . | nindent 4 }}
 data:
-  application.properties: |
-{{- range $key, $value := .Values.configmap.data }}
-    {{ $key }}={{ $value }}
-{{- end }}
+  env.js: |
 {{- if not .Values.configmap.data }}
-    # no configuration data provided
+    window.__ENV__ = {
+      API_URL: "{{ .Values.data. }}"
+    };
 {{- end }}
 {{- end }}
