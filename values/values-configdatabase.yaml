@@ -63,7 +63,7 @@ secret:
   DB_NAME: dorahotel
   DB_USER: sa
   DB_PASS: Root1234
-
+  DB_URL: '@gfgdf'
 
 
 extraSecrets:

@@ -107,6 +107,12 @@ env:
           name: confighostdatabase-secret
           key: DB_PORT
           optional: false
+    - name: DB_URL
+      valueFrom:
+        secretKeyRef:
+          name: confighostdatabase-secret
+          key: DB_URL
+          optional: false      
   
 extraSecrets:
   enabled: false
