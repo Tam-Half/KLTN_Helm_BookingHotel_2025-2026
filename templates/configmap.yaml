@@ -8,9 +8,7 @@ metadata:
     {{- include "mychart.labels" . | nindent 4 }}
 data:
   env.js: |
-{{- if not .Values.configmap.data }}
     window.__ENV__ = {
-      API_URL: "{{ .Values.data.apiUrl }}"
+      API_URL: "{{ .Values.configmap.data.apiUrl }}"
     };
-{{- end }}
 {{- end }}
