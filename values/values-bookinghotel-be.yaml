@@ -10,7 +10,7 @@ deployment:
   image:
     name: bookinghotel-be-container
     repository: bookinghotel_be
-    tag: "01"
+    tag: "02"
     port: 120
 
   resources:
