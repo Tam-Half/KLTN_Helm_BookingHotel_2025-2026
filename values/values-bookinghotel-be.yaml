@@ -90,6 +90,11 @@ env:
   
 extraSecrets:
   enabled: false
+
+extraConfigMaps:
+  enabled: true
+  items:
+    - name: bookinghotel-be-configmap  
 #======================
 # PVC
 #======================

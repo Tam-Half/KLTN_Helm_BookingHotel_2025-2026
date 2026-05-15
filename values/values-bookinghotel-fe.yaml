@@ -111,6 +111,9 @@ env:
           optional: false
 extraSecrets:
   enabled: false
+
+extraConfigMaps:
+  enabled: false
 #======================
 # PVC
 #======================
