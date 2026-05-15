@@ -55,7 +55,7 @@ spec:
 
 {{- if .Values.deployment.resources.enabled }}
           resources:
-{{- if .Values.resources.request }}
+{{- if .Values.deployment.resources.request }}
             requests:
               memory: "{{ .Values.deployment.resources.request.memory }}"
               cpu: "{{ .Values.deployment.resources.request.cpu }}"

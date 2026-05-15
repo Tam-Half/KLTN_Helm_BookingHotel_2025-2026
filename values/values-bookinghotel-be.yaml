@@ -45,10 +45,10 @@ route:
 
 configmap:
   enabled: false
-#   nameConfigMap: orderservice-be-application-propertie-configmap
-#   data:
-#     server.port: "${PORT_SERVICE}"
-#     spring.application.name: "${NAME_SERVICE}"
+  # nameConfigMap: orderservice-be-application-propertie-configmap
+  # data:
+  #    server.port: "${PORT_SERVICE}"
+  #    spring.application.name: "${NAME_SERVICE}"
 
 
 #======================
@@ -56,9 +56,17 @@ configmap:
 #======================
 volumeMounts:
   enabled: false
+#   items:
+#     - name: be-config-url
+#       mountPath:  /usr/src/app/config/env.js
+#       subPath: env.js
 
 volumes:
   enabled: false
+#   items:
+#     - name: be-config-url 
+#       configMap:
+#         name: bookinghotel-be-configmap
 
 
 
